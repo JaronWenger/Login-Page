@@ -1,8 +1,9 @@
-# React + Vite
+# Login Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Login template with two input boxes.  Created with React.js.
 
-Currently, two official plugins are available:
+Below is a link to this project.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+https://jaronwenger.github.io/Login-Page/
+
+<img width="994" alt="Screenshot 2024-04-13 at 10 13 05 AM" src="https://github.com/JaronWenger/Login-Page/assets/147181586/591b8d81-6dcd-4881-8bdd-5a8e37943e7f">

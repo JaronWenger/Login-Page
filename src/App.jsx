@@ -1,35 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [onSubmit, setOnSubmit] = useState(false);
+  const [fullName, setFullName] = useState({
+    fName: "",
+    lName: "",
+  });
+
+  function handleChange(event) {
+    const { value, name } = event.target;
+
+    setFullName((preValue) => {
+      if (name === "fName") {
+        return {
+          fName: value,
+          lName: preValue.lName,
+        };
+      } else if (name === "lName") {
+        return {
+          fName: preValue.fName,
+          lName: value,
+        };
+      }
+    });
+  }
+
+  function mouseOn() {
+    setOnSubmit(true);
+  }
+  function mouseOff() {
+    setOnSubmit(false);
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className="container">
+      <h1>
+        Hello {fullName.fName} {fullName.lName}
+      </h1>
+      <form>
+        <input onChange={handleChange} name="fName" placeholder="First Name" />
+        <input onChange={handleChange} name="lName" placeholder="Last Name" />
+        <button
+          onMouseOver={mouseOn}
+          onMouseOut={mouseOff}
+          style={
+            onSubmit
+              ? { backgroundColor: "black" }
+              : { backgroundColor: "white" }
+          }
+        >
+          Submit
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      </form>
+    </div>
+  );
 }
 
-export default App
+export default App;
